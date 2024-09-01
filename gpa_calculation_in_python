@@ -1,0 +1,38 @@
+class Subject:
+
+  def __init__(self, name, mark):
+      self.name = name
+      self.mark = mark
+
+  def grade_point(self):
+      if (80<= self.mark <=100):
+          return 4
+      elif (60<= self.mark <=79):
+          return 3
+      elif (40<= self.mark <=59):
+          return 2
+      else :
+          return 0
+  def grade(self):
+      if (80<= self.mark <=100):
+            return 'A'
+      elif (60<= self.mark <=79):
+            return 'B'
+      elif (40<= self.mark <=59):
+            return 'c'
+      else :
+            return 'F'
+
+
+
+
+n = int(input("Enter number of Subjects :"))
+t_gpa = 0
+for i in range(n):
+    sub_name = input("Enter Subject Name :")
+    sub_mark = float(input("Enter Subject Mark :"))
+    globals()[sub_name] = Subject(sub_name,sub_mark) 
+    t_gpa += globals()[sub_name].grade_point()
+
+gpa = t_gpa/n
+print(gpa)
